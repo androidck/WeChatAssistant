@@ -1,0 +1,20 @@
+     case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
+                if (className.equals("com.tencent.mm.ui.LauncherUI")){
+                    getLaskPacket();
+                }else if (className.equals("com.tencent.mm.plugin.luckymoney.ui.LuckyMoneyReceiveUI")){
+                    //点击开启红包
+                    inputClick("com.tencent.mm:id/cnu");
+                }else if (className.equals("com.tencent.mm.plugin.luckymoney.ui.LuckyMoneyDetailUI")){
+                    inputClick("com.tencent.mm:id/jb");
+                }
+                break;
+
+                    /**
+                     * 获取最后一个红包并点击
+                     */
+                    public void getLaskPacket(){
+                       recycle();
+                        if (parents.size()>0){
+                            parents.get(parents.size()-1).performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                        }
+                    }
